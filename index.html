@@ -1,0 +1,1007 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Niguse Kelile - Data Analyst Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<style>
+			/* Global Styles */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			}
+			
+			:root {
+				--primary: #3498db;
+				--secondary: #2c3e50;
+				--accent: #e74c3c;
+				--light: #ecf0f1;
+				--dark: #2c3e50;
+				--text: #34495e;
+				--shadow: 0 5px 15px rgba(0,0,0,0.1);
+			}
+			
+			body {
+				background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+				color: var(--text);
+				line-height: 1.6;
+				overflow-x: hidden;
+			}
+			
+			.container {
+				width: 90%;
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+			
+			section {
+				padding: 80px 0;
+			}
+			
+			.section-header {
+				text-align: center;
+				margin-bottom: 50px;
+			}
+			
+			.section-header h2 {
+				font-size: 2.5rem;
+				color: var(--secondary);
+				position: relative;
+				display: inline-block;
+				margin-bottom: 15px;
+			}
+			
+			.section-header h2::after {
+				content: '';
+				position: absolute;
+				bottom: -10px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 80px;
+				height: 4px;
+				background: var(--primary);
+				border-radius: 2px;
+			}
+			
+			.section-header p {
+				font-size: 1.1rem;
+				color: #7f8c8d;
+				max-width: 700px;
+				margin: 0 auto;
+			}
+			
+			.btn {
+				display: inline-block;
+				padding: 12px 30px;
+				background: var(--primary);
+				color: white;
+				border-radius: 50px;
+				text-decoration: none;
+				font-weight: 600;
+				transition: all 0.3s ease;
+				border: 2px solid var(--primary);
+				text-transform: uppercase;
+				font-size: 0.9rem;
+				letter-spacing: 1px;
+			}
+			
+			.btn:hover {
+				background: transparent;
+				color: var(--primary);
+				transform: translateY(-3px);
+				box-shadow: var(--shadow);
+			}
+			
+			.btn-secondary {
+				background: transparent;
+				color: var(--primary);
+			}
+			
+			.btn-secondary:hover {
+				background: var(--primary);
+				color: white;
+			}
+			
+			/* Header Styles */
+			header {
+				background: rgba(255, 255, 255, 0.95);
+				box-shadow: var(--shadow);
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				z-index: 1000;
+				padding: 20px 0;
+			}
+			
+			.header-container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			
+			.logo {
+				font-size: 1.8rem;
+				font-weight: 700;
+				color: var(--secondary);
+				text-decoration: none;
+			}
+			
+			.logo span {
+				color: var(--primary);
+			}
+			
+			nav ul {
+				display: flex;
+				list-style: none;
+			}
+			
+			nav ul li {
+				margin-left: 30px;
+			}
+			
+			nav ul li a {
+				color: var(--text);
+				text-decoration: none;
+				font-weight: 600;
+				font-size: 1rem;
+				transition: color 0.3s;
+				position: relative;
+				padding: 5px 0;
+			}
+			
+			nav ul li a::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 0;
+				height: 2px;
+				background: var(--primary);
+				transition: width 0.3s;
+			}
+			
+			nav ul li a:hover {
+				color: var(--primary);
+			}
+			
+			nav ul li a:hover::after {
+				width: 100%;
+			}
+			
+			nav ul li a.active {
+				color: var(--primary);
+			}
+			
+			nav ul li a.active::after {
+				width: 100%;
+			}
+			
+			.social-icons a {
+				margin-left: 15px;
+				color: var(--text);
+				font-size: 1.2rem;
+				transition: color 0.3s;
+			}
+			
+			.social-icons a:hover {
+				color: var(--primary);
+			}
+			
+			/* Hero Section */
+			#hero {
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				background: 
+					linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), 
+					url('images/DNA_1.jpeg');
+				background-size: cover;
+				background-position: center;
+				color: white;
+				text-align: center;
+			}
+			
+			.hero-content {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+			
+			.hero-content h1 {
+				font-size: 3.5rem;
+				margin-bottom: 20px;
+				line-height: 1.2;
+			}
+			
+			.hero-content p {
+				font-size: 1.2rem;
+				margin-bottom: 30px;
+				opacity: 0.9;
+			}
+			
+			.hero-btns {
+				display: flex;
+				justify-content: center;
+				gap: 20px;
+				margin-top: 30px;
+			}
+			
+			/* About Section */
+			#about {
+                background: 
+                    linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                    url('images/data_1.jpeg');
+				background-size: cover;
+				background-position: center;
+			}
+			
+			.about-content {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 50px;
+				align-items: center;
+			}
+			
+			.about-text h3 {
+				font-size: 1.8rem;
+				margin-bottom: 20px;
+				color: var(--secondary);
+			}
+			
+			.about-text p {
+				margin-bottom: 15px;
+				font-size: 1.1rem;
+			}
+			
+			.about-image {
+				position: relative;
+				border-radius: 10px;
+				overflow: hidden;
+				box-shadow: var(--shadow);
+			}
+			
+			.video-placeholder {
+				position: relative;
+				height: 0;
+				padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+				background: #2c3e50;
+				border-radius: 10px;
+				overflow: hidden;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				box-shadow: var(--shadow);
+			}
+			
+			.video-placeholder::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(45deg, #3498db, #2c3e50);
+				opacity: 0.8;
+			}
+			
+			.video-content {
+				position: absolute;
+				text-align: center;
+				color: white;
+				z-index: 2;
+				padding: 20px;
+			}
+			
+			.video-content i {
+				font-size: 4rem;
+				margin-bottom: 20px;
+				color: rgba(255, 255, 255, 0.9);
+			}
+			
+			.video-content h3 {
+				font-size: 1.5rem;
+				margin-bottom: 10px;
+			}
+			
+			.video-content p {
+				font-size: 1rem;
+			}
+			
+			/* Projects Section */
+			#projects {
+				background: 
+					linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)),
+					url('https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=60');
+				background-size: cover;
+				background-position: center;
+			}
+			
+			.projects-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+				gap: 30px;
+			}
+			
+			.project-card {
+				background: white;
+				border-radius: 10px;
+				overflow: hidden;
+				box-shadow: var(--shadow);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+			
+			.project-card:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+			}
+			
+			.project-img {
+				height: 200px;
+				overflow: hidden;
+			}
+			
+			.project-img img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.5s ease;
+			}
+			
+			.project-card:hover .project-img img {
+				transform: scale(1.1);
+			}
+			
+			.project-content {
+				padding: 25px;
+			}
+			
+			.project-content h3 {
+				font-size: 1.5rem;
+				margin-bottom: 15px;
+				color: var(--secondary);
+			}
+			
+			.project-content p {
+				margin-bottom: 20px;
+				color: #7f8c8d;
+			}
+			
+			.project-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 10px;
+				margin-bottom: 20px;
+			}
+			
+			.tag {
+				background: #e1f0fa;
+				color: var(--primary);
+				padding: 5px 15px;
+				border-radius: 50px;
+				font-size: 0.85rem;
+				font-weight: 500;
+			}
+			
+			/* Contact Section */
+			#contact {
+				background: white;
+			}
+			
+			.contact-container {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 50px;
+			}
+			
+			.contact-form {
+				background: #f8f9fa;
+				padding: 40px;
+				border-radius: 10px;
+				box-shadow: var(--shadow);
+			}
+			
+			.contact-form h3 {
+				font-size: 1.8rem;
+				margin-bottom: 20px;
+				color: var(--secondary);
+			}
+			
+			.form-group {
+				margin-bottom: 20px;
+			}
+			
+			.form-group label {
+				display: block;
+				margin-bottom: 8px;
+				font-weight: 600;
+				color: var(--text);
+			}
+			
+			.form-group input,
+			.form-group textarea {
+				width: 100%;
+				padding: 12px 15px;
+				border: 2px solid #e0e6ed;
+				border-radius: 8px;
+				font-size: 1rem;
+				transition: border-color 0.3s;
+			}
+			
+			.form-group input:focus,
+			.form-group textarea:focus {
+				outline: none;
+				border-color: var(--primary);
+			}
+			
+			.form-group textarea {
+				resize: vertical;
+				min-height: 120px;
+			}
+			
+			.contact-info {
+				padding: 20px 0;
+			}
+			
+			.contact-info h3 {
+				font-size: 1.8rem;
+				margin-bottom: 20px;
+				color: var(--secondary);
+			}
+			
+			.info-item {
+				display: flex;
+				margin-bottom: 25px;
+				align-items: flex-start;
+			}
+			
+			.info-item i {
+				font-size: 1.5rem;
+				color: var(--primary);
+				margin-right: 15px;
+				margin-top: 5px;
+			}
+			
+			.info-text h4 {
+				font-size: 1.2rem;
+				margin-bottom: 5px;
+				color: var(--text);
+			}
+			
+			.info-text p {
+				color: #7f8c8d;
+			}
+			
+			/* Resume Section */
+			#resume {
+				background: 
+					linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+					url('images/AI_1.jpeg');
+				background-size: cover;
+				background-position: center;
+				text-align: center;
+			}
+			
+			.resume-container {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+			
+			.resume-downloads {
+				display: flex;
+				justify-content: center;
+				gap: 30px;
+				margin-top: 40px;
+				flex-wrap: wrap;
+			}
+			
+			.download-card {
+				background: white;
+				border-radius: 10px;
+				padding: 30px;
+				box-shadow: var(--shadow);
+				width: 300px;
+				transition: transform 0.3s ease;
+			}
+			
+			.download-card:hover {
+				transform: translateY(-10px);
+			}
+			
+			.download-card i {
+				font-size: 3rem;
+				color: var(--primary);
+				margin-bottom: 20px;
+			}
+			
+			.download-card h3 {
+				font-size: 1.5rem;
+				margin-bottom: 15px;
+				color: var(--secondary);
+			}
+			
+			/* Skills List Fix */
+			.skills-list {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 10px;
+				margin-top: 15px;
+			}
+			
+			/* Footer */
+			footer {
+				background: var(--secondary);
+				color: white;
+				padding: 40px 0 20px;
+			}
+			
+			.footer-content {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 40px;
+				margin-bottom: 40px;
+			}
+			
+			.footer-section h3 {
+				font-size: 1.5rem;
+				margin-bottom: 20px;
+				position: relative;
+				padding-bottom: 10px;
+			}
+			
+			.footer-section h3::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 50px;
+				height: 2px;
+				background: var(--primary);
+			}
+			
+			.footer-section p {
+				margin-bottom: 20px;
+				opacity: 0.8;
+			}
+			
+			.footer-links {
+				list-style: none;
+			}
+			
+			.footer-links li {
+				margin-bottom: 10px;
+			}
+			
+			.footer-links a {
+				color: #ecf0f1;
+				text-decoration: none;
+				transition: color 0.3s;
+				opacity: 0.8;
+			}
+			
+			.footer-links a:hover {
+				color: var(--primary);
+				opacity: 1;
+			}
+			
+			.footer-social {
+				display: flex;
+				gap: 15px;
+				margin-top: 20px;
+			}
+			
+			.footer-social a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 40px;
+				height: 40px;
+				background: rgba(255,255,255,0.1);
+				border-radius: 50%;
+				color: white;
+				transition: all 0.3s;
+			}
+			
+			.footer-social a:hover {
+				background: var(--primary);
+				transform: translateY(-5px);
+			}
+			
+			.footer-bottom {
+				text-align: center;
+				padding-top: 20px;
+				border-top: 1px solid rgba(255,255,255,0.1);
+				font-size: 0.9rem;
+				opacity: 0.7;
+			}
+			
+			/* Responsive */
+			@media (max-width: 992px) {
+				.about-content,
+				.contact-container {
+					grid-template-columns: 1fr;
+				}
+				
+				.about-image {
+					order: -1;
+				}
+			}
+			
+			@media (max-width: 768px) {
+				.header-container {
+					flex-direction: column;
+				}
+				
+				nav ul {
+					margin-top: 20px;
+				}
+				
+				nav ul li {
+					margin: 0 10px;
+				}
+				
+				.hero-content h1 {
+					font-size: 2.5rem;
+				}
+				
+				.section-header h2 {
+					font-size: 2rem;
+				}
+			}
+			
+			@media (max-width: 576px) {
+				.hero-btns {
+					flex-direction: column;
+				}
+				
+				.projects-grid {
+					grid-template-columns: 1fr;
+				}
+				
+				nav ul {
+					flex-wrap: wrap;
+					justify-content: center;
+				}
+				
+				.resume-downloads {
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Header -->
+		<header>
+			<div class="container header-container">
+				<a href="#" class="logo">Niguse <span>Kelile Lema</span></a>
+				
+				<nav>
+					<ul>
+						<li><a href="#about" class="active">About Me</a></li>
+						<li><a href="#projects">Portfolio</a></li>
+						<li><a href="#resume">Resume</a></li> <!-- Added Resume tab -->
+						<li><a href="#contact">Contact Me</a></li>
+					</ul>
+				</nav>
+				
+				<div class="social-icons">
+					<a href="https://www.linkedin.com/in/niguse-kelile-lema/" target="_blank"><i class="fab fa-linkedin"></i></a>
+					<a href="https://github.com/nigusekelile" target="_blank"><i class="fab fa-github"></i></a>
+					<a href="https://www.kaggle.com/work/overview" target="_blank"><i class="fab fa-kaggle"></i></a>
+					<a hrref="https://x.com/NiguseKelile" target="_blank"><i class="fab fa-twitter"></i></a>
+				</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Hero Section -->
+		<section id="hero">
+			<div class="container hero-content">
+				<h1>Transforming Data into Actionable Insights</h1>
+				<p>I'm Niguse Kelile, a Bioinformtics and data analyst passionate about uncovering meaningful patterns in complex data to drive informed decisions and create impactful solutions.</p>
+				<div class="hero-btns">
+					<a href="#projects" class="btn">View My Portfolio</a>
+					<a href="#contact" class="btn btn-secondary">Get In Touch</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- About Me Section -->
+		<section id="about">
+			<div class="container">
+				<div class="section-header">
+					<h2>About Me</h2>
+					<p>Get to know my background, skills, and professional journey</p>
+				</div>
+				
+				<div class="about-content">
+					<div class="about-text">
+						<h3>Bioinformatics and Data Analyst with a Passion for Insights</h3>
+						<p>Niguse Kelile Lema is a Bioinformatics and Data analyst at the Bio and Emerging Technology Institute. With a strong foundation in biotechnology and bioinformatics, he integrates data science, bioinformatics, and genomics to solve real-world problems.</p>
+						
+						<p>Niguse aspires to become a leader in data-driven health and biotechnology solutions. He has led impactful research on antimicrobial resistance using shotgun metagenomics and microbial safety of traditional fermented foods, utilizing PacBio sequencing, to bridge science and analytics and drive innovation and public health impact.</p>
+						
+						<p>I'm passionate about continuous learning and staying updated with the latest trends in data analytics. My goal is to leverage data to solve real-world problems and contribute to organizational success through insightful analysis.</p>
+						
+						<div class="skills">
+							<h3>Technical Skills</h3>
+							<div class="skills-list">
+								<span class="tag">Biotechnology</span>
+								<span class="tag">Bioinformatics</span>
+								<span class="tag">SQL</span>
+								<span class="tag">Python</span>
+								<span class="tag">Linux</span>
+								<span class="tag">Tableau</span>
+								<span class="tag">Power BI</span>
+								<span class="tag">Excel</span>
+								<span class="tag">Data Visualization</span>
+								<span class="tag">Statistical Analysis</span>
+								<span class="tag">Machine Learning</span>
+								<span class="tag">Data Entry</span>
+								<span class="tag">Data Cleaning</span>
+								<span class="tag">Big Data</span>
+								<span class="tag">R Programming</span>
+								<span class="tag">Data Mining</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="about-image">
+						<div class="video-placeholder">
+							<div class="video-content">
+								<i class="fas fa-play-circle"></i>
+								<h3>My Elevator Pitch</h3>
+								<p>Click to watch my introduction video</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Projects Section -->
+		<section id="projects">
+			<div class="container">
+				<div class="section-header">
+					<h2>My Portfolio</h2>
+					<p>Explore my data analysis projects showcasing my technical skills and problem-solving abilities</p>
+				</div>
+				
+				<div class="projects-grid">
+					<!-- Project 1 - Covid Data Exploration -->
+					<div class="project-card">
+						<div class="project-img">
+							<img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80" alt="Covid Data Exploration">
+						</div>
+						<div class="project-content">
+							<h3>Covid19 Data Exploration in SQL</h3>
+							<p>Explored Covid data on a Microsoft SQL server, analyzing deaths and vaccinations in Ethiopia and globally to uncover trends and insights.</p>
+							<div class="project-tags">
+								<span class="tag">SQL</span>
+								<span class="tag">Data Exploration</span>
+								<span class="tag">Microsoft SQL Server</span>
+							</div>
+							<a href="https://github.com/nigusekelile/Covid_Data_Exploration_with_SQL" class="btn" target="_blank">View Project</a>
+						</div>
+					</div>
+					
+					<!-- Project 2 - Movie Data Correlation -->
+					<div class="project-card">
+						<div class="project-img">
+							<img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80" alt="Movie Data Correlation">
+						</div>
+						<div class="project-content">
+							<h3>Movie Data Correlation in Python</h3>
+							<p>Analyzed the correlation between film budgets and gross earnings using Python to identify factors contributing to box office success.</p>
+							<div class="project-tags">
+								<span class="tag">Python</span>
+								<span class="tag">Pandas</span>
+								<span class="tag">Data Correlation</span>
+							</div>
+							<a href="https://github.com/nigusekelile/Movie_Data_Correlation_in_Python" class="btn" target="_blank">View Project</a>
+						</div>
+					</div>
+					
+					<!-- Project 3 - Titanic ML -->
+					<div class="project-card">
+						<div class="project-img">
+							<img src="images/titanic.jpeg" alt="Titanic Machine Learning">
+						</div>
+						<div class="project-content">
+							<h3>Titanic - Machine Learning from Disaster</h3>
+							<p>Built a predictive model to determine survival likelihood on the Titanic using machine learning algorithms and passenger data.</p>
+							<div class="project-tags">
+								<span class="tag">Machine Learning</span>
+								<span class="tag">Python</span>
+								<span class="tag">Predictive Modeling</span>
+							</div>
+							<a href="https://github.com/nigusekelile/Titanic_Machine_Learning_from_Disaster" class="btn" target="_blank">View Project</a>
+						</div>
+					</div>
+					
+					<!-- Project 4 - Tableau Projects -->
+					<div class="project-card">
+						<div class="project-img">
+							<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80" alt="Tableau Projects">
+						</div>
+						<div class="project-content">
+							<h3>Tableau Dashboards</h3>
+							<p>A collection of interactive dashboards created in Tableau for visualizing complex datasets and communicating insights effectively.</p>
+							<div class="project-tags">
+								<span class="tag">Tableau</span>
+								<span class="tag">Data Visualization</span>
+								<span class="tag">Dashboards</span>
+							</div>
+							<a href="https://public.tableau.com/app/profile/niguse/vizzes" class="btn" target="_blank">View Project</a>
+						</div>
+					</div>
+					
+					<!-- Project 5 - Power BI Projects -->
+					<div class="project-card">
+						<div class="project-img">
+							<img src="images/power_bi.jpeg" alt="Power BI Projects">
+						</div>
+						<div class="project-content">
+							<h3>Power BI Dashboards</h3>
+							<p>Interactive business intelligence dashboards created in Power BI for data storytelling and decision support.</p>
+							<div class="project-tags">
+								<span class="tag">Power BI</span>
+								<span class="tag">Business Intelligence</span>
+								<span class="tag">Data Storytelling</span>
+							</div>
+							<a href="https://app.powerbi.com/groups/me/list?experience=power-bi" class="btn" target="_blank">View Project</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Resume Section -->
+		<section id="resume">
+			<div class="container">
+				<div class="section-header">
+					<h2>My Resume</h2>
+					<p>Download my professional documents for detailed information</p>
+				</div>
+				
+				<div class="resume-container">
+					<div class="resume-downloads">
+						<div class="download-card">
+							<i class="fas fa-file-alt"></i>
+							<h3>Cover Letter</h3>
+							<p>My professional introduction and career overview</p>
+							<a href="Cover_Letter_Website.pdf" class="btn">Download PDF</a>
+						</div>
+						
+						<div class="download-card">
+							<i class="fas fa-file-contract"></i>
+							<h3>Curriculum Vitae</h3>
+							<p>Detailed professional background and qualifications</p>
+							<a href="CV_Website.pdf" class="btn">Download PDF</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact">
+			<div class="container">
+				<div class="section-header">
+					<h2>Contact Me</h2>
+					<p>Have a question or want to work together? Get in touch!</p>
+				</div>
+				
+				<div class="contact-container">
+					<div class="contact-form">
+						<h3>Send a Message</h3>
+						<form>
+							<div class="form-group">
+								<label for="name">Your Name</label>
+								<input type="text" id="name" placeholder="Enter your name">
+							</div>
+							
+							<div class="form-group">
+								<label for="email">Email Address</label>
+								<input type="email" id="email" placeholder="Enter your email">
+							</div>
+							
+							<div class="form-group">
+								<label for="subject">Subject</label>
+								<input type="text" id="subject" placeholder="Enter subject">
+							</div>
+							
+							<div class="form-group">
+								<label for="message">Your Message</label>
+								<textarea id="message" placeholder="Enter your message"></textarea>
+							</div>
+							
+							<button type="submit" class="btn">Send Message</button>
+						</form>
+					</div>
+					
+					<div class="contact-info">
+						<h3>Contact Information</h3>
+						
+						<div class="info-item">
+							<i class="fas fa-map-marker-alt"></i>
+							<div class="info-text">
+								<h4>Location</h4>
+								<p>Addis Ababa, Ethiopia</p>
+							</div>
+						</div>
+						
+						<div class="info-item">
+							<i class="fas fa-phone"></i>
+							<div class="info-text">
+								<h4>Phone</h4>
+								<p>+251 920 319 544</p>
+							</div>
+						</div>
+						
+						<div class="info-item">
+							<i class="fas fa-envelope"></i>
+							<div class="info-text">
+								<h4>Email</h4>
+								<p>niguse.kelile@gmail.com</p>
+							</div>
+						</div>
+						
+						<div class="info-item">
+							<i class="fas fa-clock"></i>
+							<div class="info-text">
+								<h4>Availability</h4>
+								<p>Monday - Saturday: 8AM - 5PM</p>
+							</div>
+						</div>
+						
+						<div class="footer-social">
+							<a href="https://www.linkedin.com/in/niguse-kelile-lema/" target="_blank"><i class="fab fa-linkedin"></i></a>
+							<a href="https://github.com/nigusekelile" target="_blank"><i class="fab fa-github"></i></a>
+							<a href="https://www.kaggle.com/work/overview" target="_blank"><i class="fab fa-kaggle"></i></a>
+							<a href="https://x.com/NiguseKelile"><i class="fab fa-twitter"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer>
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-section">
+						<h3>Niguse Kelile</h3>
+						<p>Bioinformatics and Data analyst specializing in transforming complex data into actionable insights.</p>
+					</div>
+					
+					<div class="footer-section">
+						<h3>Quick Links</h3>
+						<ul class="footer-links">
+							<li><a href="#about">About Me</a></li>
+							<li><a href="#projects">Portfolio</a></li>
+							<li><a href="#resume">Resume</a></li> <!-- Added Resume link -->
+							<li><a href="#contact">Contact</a></li>
+						</ul>
+					</div>
+					
+					<div class="footer-section">
+						<h3>Contact Info</h3>
+						<p><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</p>
+						<p><i class="fas fa-phone"></i> +251 920 319 544</p>
+						<p><i class="fas fa-envelope"></i> niguse.kelile@gmail.com</p>
+					</div>
+				</div>
+				
+				<div class="footer-bottom">
+					<p>&copy; 2025 Niguse Kelile Lema. All rights reserved.</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
