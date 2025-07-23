@@ -2,6 +2,11 @@
 
 Welcome to the professional portfolio repository of **Niguse Kelile Lema**, a Data Analyst with expertise in transforming complex datasets into actionable insights. This site highlights my professional background, key projects, skills, and downloadable resources with a strong emphasis on **Data Analytics**, **Big Data**, and **Bioinformatics**.
 
+# 👋 Hi, I'm Niguse Kelile Lema
+
+🎓 **Biotechnologist | Bioinformatician | Data Scientist | Educator**  
+📍 Based in Ethiopia | 🌍 Working on global science & innovation  
+📬 nigusekelile@gmail.com | 🔗 [LinkedIn](https://www.linkedin.com/in/niguse-kelile-lema)
 ---
 
 ## 🚀 Overview
