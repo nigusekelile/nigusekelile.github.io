@@ -70,6 +70,3 @@ Feel free to reach out through the [Contact Form](#) on the website or connect w
 - 🌐 [Personal Website](https://nigusekelile.github.io/)
 
 ---
-
-## 📂 Repository Structure
-
