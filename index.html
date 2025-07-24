@@ -204,6 +204,7 @@
 				background-position: center;
 				color: white;
 				text-align: center;
+				padding-top: 80px; /* Added padding to avoid header overlap */
 			}
 			
 			.hero-content {
@@ -264,52 +265,22 @@
 				box-shadow: var(--shadow);
 			}
 			
-			.video-placeholder {
+			.video-container {
 				position: relative;
 				height: 0;
 				padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-				background: #2c3e50;
 				border-radius: 10px;
 				overflow: hidden;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				cursor: pointer;
 				box-shadow: var(--shadow);
 			}
 			
-			.video-placeholder::before {
-				content: "";
+			.video-container iframe {
 				position: absolute;
 				top: 0;
 				left: 0;
 				width: 100%;
 				height: 100%;
-				background: linear-gradient(45deg, #3498db, #2c3e50);
-				opacity: 0.8;
-			}
-			
-			.video-content {
-				position: absolute;
-				text-align: center;
-				color: white;
-				z-index: 2;
-				padding: 20px;
-			}
-			
-			.video-content i {
-				font-size: 4rem;
-				margin-bottom: 20px;
-				color: rgba(255, 255, 255, 0.9);
-			}
-			
-			.video-content h3 {
-				font-size: 1.5rem;
-				margin-bottom: 10px;
-			}
-			
-			.video-content p {
-				font-size: 1rem;
+				border: none;
 			}
 			
 			/* Projects Section */
@@ -385,6 +356,97 @@
 				border-radius: 50px;
 				font-size: 0.85rem;
 				font-weight: 500;
+			}
+			
+			/* Publications Section */
+			#publications {
+				background: 
+					linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+					url('images/publications_bg.jpeg');
+				background-size: cover;
+				background-position: center;
+			}
+			
+			.publications-list {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+			
+			.publication-item {
+				background: white;
+				border-radius: 10px;
+				padding: 25px;
+				margin-bottom: 25px;
+				box-shadow: var(--shadow);
+				transition: transform 0.3s ease;
+			}
+			
+			.publication-item:hover {
+				transform: translateY(-5px);
+			}
+			
+			.publication-item h3 {
+				font-size: 1.3rem;
+				margin-bottom: 15px;
+				color: var(--secondary);
+			}
+			
+			.publication-item p {
+				margin-bottom: 15px;
+				color: #7f8c8d;
+			}
+			
+			/* Blog Section */
+			#blog {
+				background: 
+					linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)),
+					url('images/blog_bg.jpeg');
+				background-size: cover;
+				background-position: center;
+			}
+			
+			.blog-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+				gap: 30px;
+			}
+			
+			.blog-card {
+				background: white;
+				border-radius: 10px;
+				overflow: hidden;
+				box-shadow: var(--shadow);
+				transition: transform 0.3s ease;
+			}
+			
+			.blog-card:hover {
+				transform: translateY(-10px);
+			}
+			
+			.blog-img {
+				height: 200px;
+				overflow: hidden;
+			}
+			
+			.blog-img img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+			
+			.blog-content {
+				padding: 25px;
+			}
+			
+			.blog-content h3 {
+				font-size: 1.5rem;
+				margin-bottom: 15px;
+				color: var(--secondary);
+			}
+			
+			.blog-content p {
+				margin-bottom: 20px;
+				color: #7f8c8d;
 			}
 			
 			/* Contact Section */
@@ -638,10 +700,12 @@
 				
 				nav ul {
 					margin-top: 20px;
+					flex-wrap: wrap;
+					justify-content: center;
 				}
 				
 				nav ul li {
-					margin: 0 10px;
+					margin: 10px;
 				}
 				
 				.hero-content h1 {
@@ -658,18 +722,18 @@
 					flex-direction: column;
 				}
 				
-				.projects-grid {
+				.projects-grid,
+				.blog-grid {
 					grid-template-columns: 1fr;
-				}
-				
-				nav ul {
-					flex-wrap: wrap;
-					justify-content: center;
 				}
 				
 				.resume-downloads {
 					flex-direction: column;
 					align-items: center;
+				}
+				
+				.contact-container {
+					grid-template-columns: 1fr;
 				}
 			}
 		</style>
@@ -684,7 +748,9 @@
 					<ul>
 						<li><a href="#about" class="active">About Me</a></li>
 						<li><a href="#projects">Portfolio</a></li>
-						<li><a href="#resume">Resume</a></li> <!-- Added Resume tab -->
+						<li><a href="#publications">Publications</a></li> <!-- Added Publications tab -->
+						<li><a href="#resume">Resume</a></li>
+						<li><a href="#blog">Blog</a></li> <!-- Added Blog tab -->
 						<li><a href="#contact">Contact Me</a></li>
 					</ul>
 				</nav>
@@ -694,7 +760,6 @@
 					<a href="https://github.com/nigusekelile" target="_blank"><i class="fab fa-github"></i></a>
 					<a href="https://www.kaggle.com/work/overview" target="_blank"><i class="fab fa-kaggle"></i></a>
 					<a href="https://x.com/NiguseKelile" target="_blank"><i class="fab fa-twitter"></i></a>
-				</div>
 				</div>
 			</div>
 		</header>
@@ -752,12 +817,8 @@
 					</div>
 					
 					<div class="about-image">
-						<div class="video-placeholder">
-							<div class="video-content">
-								<i class="fas fa-play-circle"></i>
-								<h3>My Elevator Pitch</h3>
-								<p>Click to watch my introduction video</p>
-							</div>
+						<div class="video-container">
+							<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Elevator Pitch" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
 					</div>
 				</div>
@@ -857,6 +918,76 @@
 							<a href="https://app.powerbi.com/groups/me/list?experience=power-bi" class="btn" target="_blank">View Project</a>
 						</div>
 					</div>
+					
+					<!-- Bioinformatics Project 1 -->
+					<div class="project-card">
+						<div class="project-img">
+							<img src="images/bioinfo_1.jpg" alt="Shotgun Metagenomics">
+						</div>
+						<div class="project-content">
+							<h3>Shotgun Metagenomics Analysis</h3>
+							<p>Taxonomic classification and visualization of shotgun metagenomics data using Python and bioinformatics tools.</p>
+							<div class="project-tags">
+								<span class="tag">Bioinformatics</span>
+								<span class="tag">Python</span>
+								<span class="tag">Metagenomics</span>
+							</div>
+							<a href="https://github.com/nigusekelile/Shotgun_Metagenomics/blob/main/Taxonomy_barplot.ipynb" class="btn" target="_blank">View Project</a>
+						</div>
+					</div>
+					
+					<!-- Bioinformatics Project 2 -->
+					<div class="project-card">
+						<div class="project-img">
+							<img src="images/bioinfo_2.png" alt="Amplicon Metagenomics">
+						</div>
+						<div class="project-content">
+							<h3>Amplicon Metagenomics Analysis</h3>
+							<p>End-to-end pipeline for analyzing 16S rRNA amplicon sequencing data from raw reads to taxonomic analysis.</p>
+							<div class="project-tags">
+								<span class="tag">Bioinformatics</span>
+								<span class="tag">Microbiome</span>
+								<span class="tag">QIIME2</span>
+							</div>
+							<a href="https://github.com/nigusekelile/Amplicon_Metagenomics" class="btn" target="_blank">View Project</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Publications Section -->
+		<section id="publications">
+			<div class="container">
+				<div class="section-header">
+					<h2>My Publications</h2>
+					<p>Scientific research publications in bioinformatics and biotechnology</p>
+				</div>
+				
+				<div class="publications-list">
+					<div class="publication-item">
+						<h3>Recent Advances in Metagenomic Approaches, Applications, and Challenges</h3>
+						<p>Published in Current Microbiology (2023)</p>
+						<a href="https://doi.org/10.1007/s00284-023-03451-5" class="btn" target="_blank">View Publication</a>
+					</div>
+					
+					<div class="publication-item">
+						<h3>Probiotic potential of lactic acid bacteria isolated from Ethiopian traditional fermented Cheka beverage</h3>
+						<p>Published in Annals of Microbiology (2024)</p>
+						<a href="https://doi.org/10.1186/s13213-024-01771-w" class="btn" target="_blank">View Publication</a>
+					</div>
+					
+					<div class="publication-item">
+						<h3>The application of Rumex Abysinicus derived activated carbon/bentonite clay/graphene oxide/iron oxide nanocomposite for removal of chromium from aqueous solution</h3>
+						<p>Published in Scientific Reports (2024)</p>
+						<a href="https://doi.org/10.1038/s41598-024-70238-4" class="btn" target="_blank">View Publication</a>
+					</div>
+					
+					<div class="publication-item">
+						<h3>Secondary metabolite biosynthetic gene clusters and microbial diversity as predicted by shotgun metagenomic sequencing approach in hospitals and pharmaceutical industry wastes</h3>
+						<p>Published in Scientific Reports (2025)</p>
+						<a href="https://doi.org/10.1038/s41598-025-03467-w" class="btn" target="_blank">View Publication</a>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -883,6 +1014,40 @@
 							<h3>Curriculum Vitae</h3>
 							<p>Detailed professional background and qualifications</p>
 							<a href="CV_Website.pdf" class="btn">Download PDF</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Blog Section -->
+		<section id="blog">
+			<div class="container">
+				<div class="section-header">
+					<h2>My Blog</h2>
+					<p>Insights and thoughts on bioinformatics, data analysis, and biotechnology</p>
+				</div>
+				
+				<div class="blog-grid">
+					<div class="blog-card">
+						<div class="blog-img">
+							<img src="images/blog_1.jpeg" alt="Bioinformatics Trends">
+						</div>
+						<div class="blog-content">
+							<h3>The Future of Bioinformatics in Precision Medicine</h3>
+							<p>Exploring how bioinformatics is revolutionizing personalized healthcare and treatment approaches.</p>
+							<a href="#" class="btn">Read More</a>
+						</div>
+					</div>
+					
+					<div class="blog-card">
+						<div class="blog-img">
+							<img src="images/blog_2.jpeg" alt="Data Analysis">
+						</div>
+						<div class="blog-content">
+							<h3>Data Visualization Best Practices for Scientific Research</h3>
+							<p>Essential techniques for creating compelling visualizations that communicate complex research findings.</p>
+							<a href="#" class="btn">Read More</a>
 						</div>
 					</div>
 				</div>
@@ -985,7 +1150,9 @@
 						<ul class="footer-links">
 							<li><a href="#about">About Me</a></li>
 							<li><a href="#projects">Portfolio</a></li>
-							<li><a href="#resume">Resume</a></li> <!-- Added Resume link -->
+							<li><a href="#publications">Publications</a></li>
+							<li><a href="#resume">Resume</a></li>
+							<li><a href="#blog">Blog</a></li>
 							<li><a href="#contact">Contact</a></li>
 						</ul>
 					</div>
